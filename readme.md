@@ -14,7 +14,7 @@ You can also easily style your terminal using the [advanced `::part()` CSS pseud
 ---
 
 
-## Importing this component
+# Importing this component
 
 ### Script tag
 
