@@ -10,8 +10,9 @@
 
 //VARIABLES
 $terminal-font-size: 1.8;
-$terminal-primary-font-color: #fff;
-$terminal-secondary-font-color: #bfbdbd;
+//$terminal-primary-font-color: #fff;
+$terminal-primary-font-color: var(--dlc-cssterminal-primary-font-color,#fff);
+$terminal-secondary-font-color: var(--dlc-cssterminal-secondary-font-color,#bfbdbd);
 $max-number-of-typewriter-animation-words: 50;
 /* Index that is taken into account in typewriter and delay animations, in order
 ** to calculate the seconds of the animation, the steps, etc.

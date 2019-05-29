@@ -9,12 +9,12 @@
 }
 
 //VARIABLES
-$terminal-content-background-color: #323232;
-$terminal-header-background-color: #f6f6f6;
-$border-color: #b8b8b8;
-$terminal-header-button-close: #fc645f;
-$terminal-header-button-minimize: #fdbe41;
-$terminal-header-button-maximize: #35cc4b;
+$terminal-content-background-color: var(--dlc-cssterminal-content-bgcolor, #323232);
+$terminal-header-background-color: var(--dlc-cssterminal-header-bgcolor,#f6f6f6);
+$border-color: var(--dlc-cssterminal-bordercolor,#b8b8b8);
+$terminal-header-button-close: var(--dlc-cssterminal-header-button-close-color,#fc645f);
+$terminal-header-button-minimize: var(--dlc-cssterminal-header-button-minimize-color,#fdbe41);
+$terminal-header-button-maximize: var(--dlc-cssterminal-header-button-maximize-color,#35cc4b);
 //$terminal-header-height: 3rem;
 $terminal-header-height: hem(3);
 $terminal-font-size: 1.8;
