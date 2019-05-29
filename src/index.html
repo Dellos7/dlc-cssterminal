@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
+
+  <script type="module" src="/build/dlc-css-terminal.esm.js"></script>
+  <script nomodule src="/build/dlc-css-terminal.esm.js"></script>
+
+</head>
+<body>
+
+  <!--<my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>-->
+  <dlc-cssterminal shell="~ david$">
+    <dlc-cssterminal-block command="ls">
+      Desktop Documents Downloads Pictures Videos
+    </dlc-cssterminal-block>
+    <dlc-cssterminal-block command="echo $USER" delay="3">
+      David López Castellote
+    </dlc-cssterminal-block>
+    <dlc-cssterminal-block command="pwd" delay="14">
+      /home/david
+    </dlc-cssterminal-block>
+    <dlc-cssterminal-block command="cat package.json" delay="18">
+      <pre>
+{
+  "name": "dlc-css-terminal",
+  "version": "0.0.1",
+  "description": "Stencil Component Starter",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/dlc-css-terminal/dlc-css-terminal.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll"
+  },
+  "devDependencies": {
+    "@stencil/core": "1.0.0-beta.5"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@stencil/sass": "^0.2.3",
+    "@types/jest": "^24.0.13"
+  }
+}
+          
+      </pre>
+    </dlc-cssterminal-block>
+    <dlc-cssterminal-block shell="~ david$" command="&nbsp;" delay="35"></dlc-cssterminal-block>
+  </dlc-cssterminal>
+</body>
+</html>

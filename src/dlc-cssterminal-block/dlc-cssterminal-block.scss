@@ -1,0 +1,126 @@
+
+/*:host {
+    --hem-default: 10px;
+}*/
+
+@function hem( $scale ) {
+    $result: calc(#{$scale} * var(--dlc-cssterminal-hem, 10px) );
+    @return $result;
+}
+
+//VARIABLES
+$terminal-font-size: 1.8;
+$terminal-primary-font-color: #fff;
+$terminal-secondary-font-color: #bfbdbd;
+$max-number-of-typewriter-animation-words: 50;
+/* Index that is taken into account in typewriter and delay animations, in order
+** to calculate the seconds of the animation, the steps, etc.
+*/
+$typewriter-animation-index: 1.5;
+
+//MIXINS
+/**
+* Applies the typewritter animation based on the number of words passed in as parameter
+**/
+@mixin typewriter-animation($numeroPalabras) {
+  $segs: ($numeroPalabras / 10) * $typewriter-animation-index;
+  $steps: floor($numeroPalabras * $typewriter-animation-index);
+  $widtrem: ($numeroPalabras / 3) + 0.2;
+  animation: typewriter#{$numeroPalabras} calc(#{$segs}*1s - 0.2s) steps($steps) 1s 1 normal both;
+
+  //Typewriter animation
+  @keyframes typewriter#{$numeroPalabras} {
+    0% {
+      width: 0;
+    }
+    99%{
+      //border-right-width: .4rem;
+      border-right-width: hem(.4);
+    }
+    100% {
+      //Calculates 'more or less' the total width of the content based on the number of words
+      width: calc(#{$widtrem}*#{$terminal-font-size}*1em);
+      //remove border in the end of the animation
+      border-right-width: 0;
+    }
+  }
+}
+
+//ANIMATIONS
+@keyframes appear {
+  0% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+.terminal {
+  
+  //Defines a shell/command/print block
+  &__content-block {
+    //padding: .5rem;
+    padding: hem(.5);
+    color: $terminal-primary-font-color;
+  }
+  
+  &__content-shell {
+    display: inline-block;
+    font-weight: bolder;
+    padding-right: hem(.4);
+  }
+  
+  &__content-command {
+    display: inline-block;
+    font-weight: lighter;
+    //border-right: .4rem solid $terminal-secondary-font-color;
+    border-right: hem(.4) solid $terminal-secondary-font-color;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: bottom;
+    
+    /**
+    * Creates several css classes in order to use for the typewriter animations
+      Each class auto-calculates the duration, width, etc.
+      So:
+      .terminal__content-command--2 -> typewriter animation for a command with 2 words
+      ...
+      .terminal__content-command--10 -> typewriter animation for a command with 10 words
+      ...
+    **/
+    @for $i from 2 through $max-number-of-typewriter-animation-words {
+      &--#{$i} {
+        @include typewriter-animation($i);
+      } 
+    }
+  }
+  
+  &__content-print {
+    color: $terminal-secondary-font-color;
+  }
+  
+  /**
+  * We use this classes in order to make the content appear after a certain delay
+    So:
+    .terminal__content--delay-2 -> applies a delay of 2 seconds to the animation
+    .terminal__content--delay-2-anim -> applies the 'appear' animation and a delay of 2 seconds to the animation
+    ...
+    .terminal__content--delay-10 -> applies a delay of 10 seconds to the animation
+    .terminal__content--delay-10-anim -> applies the 'appear' animation and a delay of 10 seconds to the animation
+    ...
+  **/
+  @for $i from 2 through $max-number-of-typewriter-animation-words {
+      &__content--delay-#{$i}-anim {
+        animation: appear backwards 0.5s;
+        //animation-delay: calc( ((#{$i} / 10) * 2 )* 1s + 1s);
+        animation-delay: calc( ((#{$i} / 10) * #{$typewriter-animation-index} )* 1s + 1s);
+      }
+    
+      &__content--delay-#{$i} {
+        //animation-delay: calc( ((#{$i} / 10) * 2 )* 1s + 1s);
+        animation-delay: calc( ((#{$i} / 10) * #{$typewriter-animation-index} )* 1s + 1s);
+      }
+  }
+  
+}

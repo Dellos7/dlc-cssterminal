@@ -1,0 +1,93 @@
+
+/*:host {
+    --hem-default: 10px;
+}*/
+
+@function hem( $scale ) {
+    $result: calc(#{$scale} * var(--dlc-cssterminal-hem, 10px) );
+    @return $result;
+}
+
+//VARIABLES
+$terminal-content-background-color: #323232;
+$terminal-header-background-color: #f6f6f6;
+$border-color: #b8b8b8;
+$terminal-header-button-close: #fc645f;
+$terminal-header-button-minimize: #fdbe41;
+$terminal-header-button-maximize: #35cc4b;
+//$terminal-header-height: 3rem;
+$terminal-header-height: hem(3);
+$terminal-font-size: 1.8;
+
+.terminal {
+  font-family: Consolas,monaco,monospace;
+  font-weight: 700;
+  width: 100%;
+  height: 100%;
+  //border-radius: .5rem;
+  border-radius: hem(.5);
+  position: relative;
+  //font-size: calc(#{$terminal-font-size}*1rem);
+  font-size: calc(#{$terminal-font-size}*#{hem(1)});
+  //box-shadow: 0 .5rem 2rem rgba(#000, .5);
+  box-shadow: 0 hem(.5) hem(2) rgba(#000, .5);
+  
+  &__header {
+    width: calc(100% - 1px);
+    height: $terminal-header-height;
+    background-color: $terminal-header-background-color;
+    //border-top-left-radius: .3rem;
+    border-top-left-radius: hem(.3);
+    //border-top-right-radius: .3rem;
+    border-top-right-radius: hem(.3);
+    border: .5px solid $border-color;
+    border-bottom: 1px solid $border-color;
+  }
+  
+  &__header-buttons {
+    position: relative;
+    height: 100%;
+  }
+  
+  &__header-button {
+    //width: 1.5rem;
+    width: hem(1.5);
+    //height: 1.5rem;
+    height: hem(1.5);
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    border: .1px solid $border-color;
+    
+    &--close {
+      background-color: $terminal-header-button-close;
+      //transform: translate( 1rem, -50% );
+      transform: translate( hem(1), -50% );
+    }
+    
+    &--minimize {
+      background-color: $terminal-header-button-minimize;
+      //transform: translate( 3rem, -50% );
+      transform: translate( hem(3), -50% );
+    }
+    
+    &--maximize {
+      background-color: $terminal-header-button-maximize;
+      //transform: translate( 5rem, -50% );
+      transform: translate( hem(5), -50% );
+    }
+  }
+  
+  &__content {
+      background-color: $terminal-content-background-color;
+      height: calc(100% - #{$terminal-header-height});//We remove the header height
+      //border-bottom-left-radius: .3rem;
+      border-bottom-left-radius: hem(.3);
+      //border-bottom-right-radius: .3rem;
+      border-bottom-right-radius: hem(.3);
+      overflow: scroll;
+      border-left: 0.5px solid $border-color;
+  }
+  
+}
