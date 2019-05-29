@@ -6,11 +6,12 @@ CSS Terminal is a web component which lets you simulate a terminal printing comm
 
 You can also easily style your terminal using the [advanced `::part()` CSS pseudo-selectors](#Using-the-advanced-::part()-pseudo-selectors) or you may get your desired terminal just [using the CSS variables which are available](#css-variables) for that purpose!
 
-<img src="docs/css-terminal-default.gif" align="left" width="300">
-<img src="docs/css-terminal-styled.gif" align="left" width="300">
+<p align="left">
+  <img src="docs/css-terminal-default.gif" width="400">
+  <img src="docs/css-terminal-styled.gif" width="400">
+</p>
 
-<p style="clear: both">
-
+---
 
 
 ## Importing this component
