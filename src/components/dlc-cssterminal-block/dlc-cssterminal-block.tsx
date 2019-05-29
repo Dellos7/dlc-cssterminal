@@ -3,7 +3,8 @@ import { Component, h, Prop, Element } from '@stencil/core';
 
 @Component({
     tag: 'dlc-cssterminal-block',
-    styleUrl: 'dlc-cssterminal-block.scss'
+    styleUrl: 'dlc-cssterminal-block.scss',
+    shadow: true
 })
 export class DlcCssterminalBlock {
 
@@ -25,6 +26,7 @@ export class DlcCssterminalBlock {
 
     private calculateWords() {
         return this.command ? this.command.length : 0;
+        //return this.command ? this.command.trim().replace(" ", "").length : 0;
     }
 
     private calculateTotalDelay() {
@@ -34,13 +36,13 @@ export class DlcCssterminalBlock {
     render() {
         return (
             <div class={"terminal__content-block terminal__content--delay-" + this.delay + "-anim"}>
-                <div class="terminal__content-shell">
+                <div class="terminal__content-shell" part="terminal-content-shell">
                     {this.shell}
                 </div>
-                <div class={"terminal__content-command terminal__content-command--" + this.nWords + " terminal__content--delay-" + this.delay}>
+                <div class={"terminal__content-command terminal__content-command--" + this.nWords + " terminal__content--delay-" + this.delay} part="terminal-content-command">
                     {this.command}
                 </div>
-                <div class={"terminal__content-print terminal__content--delay-" + this.totalDelay + "-anim"}>
+                <div class={"terminal__content-print terminal__content--delay-" + this.totalDelay + "-anim"} part="terminal-content-result">
                     <slot></slot>
                 </div>
             </div>

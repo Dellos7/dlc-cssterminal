@@ -69,6 +69,7 @@ $typewriter-animation-index: 1.5;
     display: inline-block;
     font-weight: bolder;
     padding-right: hem(.4);
+    color: $terminal-primary-font-color;
   }
   
   &__content-command {

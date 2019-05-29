@@ -18,20 +18,6 @@ export namespace Components {
     'result': string;
     'shell': string;
   }
-  interface MyComponent {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
-  }
 }
 
 declare namespace LocalJSX {
@@ -44,25 +30,10 @@ declare namespace LocalJSX {
     'result'?: string;
     'shell'?: string;
   }
-  interface MyComponent extends JSXBase.HTMLAttributes {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
-  }
 
   interface IntrinsicElements {
     'dlc-cssterminal': DlcCssterminal;
     'dlc-cssterminal-block': DlcCssterminalBlock;
-    'my-component': MyComponent;
   }
 }
 
@@ -92,16 +63,9 @@ declare global {
     new (): HTMLDlcCssterminalBlockElement;
   };
 
-  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
-  };
-
   interface HTMLElementTagNameMap {
     'dlc-cssterminal': HTMLDlcCssterminalElement;
     'dlc-cssterminal-block': HTMLDlcCssterminalBlockElement;
-    'my-component': HTMLMyComponentElement;
   }
 
   interface ElementTagNameMap extends HTMLElementTagNameMap {}

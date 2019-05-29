@@ -33,6 +33,7 @@ $terminal-font-size: 1.8;
   box-shadow: 0 hem(.5) hem(2) rgba(#000, .5);
   
   &__header {
+    position: relative;
     width: calc(100% - 1px);
     height: $terminal-header-height;
     background-color: $terminal-header-background-color;
@@ -45,8 +46,11 @@ $terminal-font-size: 1.8;
   }
   
   &__header-buttons {
-    position: relative;
+    position: absolute;
+    display: inline-block;
     height: 100%;
+    min-width: hem(8);
+    width: fit-content;
   }
   
   &__header-button {
