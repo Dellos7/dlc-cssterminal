@@ -7,6 +7,9 @@ import { Component, h, Prop } from '@stencil/core';
 })
 export class DlcCssterminal {
 
+  /**
+   * (optional) The shell to display in all the blocks
+   */
   @Prop() shell: string = '~ user$';
 
   render() {

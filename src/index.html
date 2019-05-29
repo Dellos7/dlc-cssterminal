@@ -9,9 +9,6 @@
   <script nomodule src="/build/dlc-css-terminal.esm.js"></script>
 
   <style>
-    /*dlc-cssterminal::part(terminal) {
-      font-family: Arial, Helvetica, sans-serif;
-    }
     dlc-cssterminal::part(terminal-content) {
       background-color: rgb(47,105,198);
     }
@@ -29,7 +26,7 @@
     }
     dlc-cssterminal-block::part(terminal-content-result) {
       color: greenyellow;
-    }*/
+    }
   </style>
 </head>
 <body>
@@ -45,24 +42,13 @@
     <dlc-cssterminal-block command="pwd" delay="14">
       /home/david
     </dlc-cssterminal-block>
-    <dlc-cssterminal-block command="cat package.json" delay="18">
+    <dlc-cssterminal-block command="cat package.json" delay="18" words="14">
       <pre>
 {
   "name": "dlc-css-terminal",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/dlc-css-terminal/dlc-css-terminal.js",
-  "files": [
-    "dist/",
-    "loader/"
-  ],
   "scripts": {
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
@@ -72,7 +58,6 @@
   "devDependencies": {
     "@stencil/core": "1.0.0-beta.5"
   },
-  "license": "MIT",
   "dependencies": {
     "@stencil/sass": "^0.2.3",
     "@types/jest": "^24.0.13"

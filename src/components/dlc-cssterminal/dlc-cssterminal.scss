@@ -1,3 +1,16 @@
+/**
+ * @prop --dlc-cssterminal-hem: Specify the font-size in order to calculate widths and heights (default is 10px)
+ * @prop --dlc-cssterminal-content-bgcolor: The terminal's content background color (default is #323232)
+ * @prop --dlc-cssterminal-header-bgcolor: The terminal's header background color (default is #f6f6f6)
+ * @prop --dlc-cssterminal-bordercolor: The terminal's border color (default is #b8b8b8)
+ * @prop --dlc-cssterminal-header-button-close-color: The terminal's header close button color (default is #fc645f)
+ * @prop --dlc-cssterminal-header-button-minimize-color: The terminal's header close button color (default is #fdbe41)
+ * @prop --dlc-cssterminal-header-button-maximize-color: The terminal's header close button color (default is #35cc4b)
+ * @prop --dlc-cssterminal-font-family: The terminal's font family (default is Consolas,monaco,monospace)
+
+ * @prop --dlc-cssterminal-primary-font-color: The terminal's primary font color, applied on shell and command texts (default is #fff)
+ * @prop --dlc-cssterminal-secondary-font-color: The terminal's secondary font color, applied on result text (default is #bfbdbd)
+ */
 
 /*:host {
     --hem-default: 10px;
@@ -15,12 +28,13 @@ $border-color: var(--dlc-cssterminal-bordercolor,#b8b8b8);
 $terminal-header-button-close: var(--dlc-cssterminal-header-button-close-color,#fc645f);
 $terminal-header-button-minimize: var(--dlc-cssterminal-header-button-minimize-color,#fdbe41);
 $terminal-header-button-maximize: var(--dlc-cssterminal-header-button-maximize-color,#35cc4b);
+$fontFamily: var(--dlc-cssterminal-font-family, Consolas,monaco,monospace);
 //$terminal-header-height: 3rem;
 $terminal-header-height: hem(3);
 $terminal-font-size: 1.8;
 
 .terminal {
-  font-family: Consolas,monaco,monospace;
+  font-family: $fontFamily;
   font-weight: 700;
   width: 100%;
   height: 100%;

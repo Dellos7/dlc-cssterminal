@@ -10,25 +10,63 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface DlcCssterminal {
+    /**
+    * (optional) The shell to display in all the blocks
+    */
     'shell': string;
   }
   interface DlcCssterminalBlock {
+    /**
+    * (optional) The command to display in the block (e.g. ls)
+    */
     'command': string;
+    /**
+    * (optional) The delay that should last the result to appear (e.g. 14)
+    */
     'delay': number;
+    /**
+    * (optional) The result to display in the block (e.g. Desktop Documents Downloads Pictures Videos)
+    */
     'result': string;
+    /**
+    * (optional) The shell to display in the block (e.g. ~ user$) This overrides the shell specified in the dlc-cssterminal component
+    */
     'shell': string;
+    /**
+    * (optional) The number of words to take into account to calculate the command text block width. This is useful when the calculation is not very accurate, so you can accurate it yourself
+    */
+    'words': number;
   }
 }
 
 declare namespace LocalJSX {
   interface DlcCssterminal extends JSXBase.HTMLAttributes {
+    /**
+    * (optional) The shell to display in all the blocks
+    */
     'shell'?: string;
   }
   interface DlcCssterminalBlock extends JSXBase.HTMLAttributes {
+    /**
+    * (optional) The command to display in the block (e.g. ls)
+    */
     'command'?: string;
+    /**
+    * (optional) The delay that should last the result to appear (e.g. 14)
+    */
     'delay'?: number;
+    /**
+    * (optional) The result to display in the block (e.g. Desktop Documents Downloads Pictures Videos)
+    */
     'result'?: string;
+    /**
+    * (optional) The shell to display in the block (e.g. ~ user$) This overrides the shell specified in the dlc-cssterminal component
+    */
     'shell'?: string;
+    /**
+    * (optional) The number of words to take into account to calculate the command text block width. This is useful when the calculation is not very accurate, so you can accurate it yourself
+    */
+    'words'?: number;
   }
 
   interface IntrinsicElements {
