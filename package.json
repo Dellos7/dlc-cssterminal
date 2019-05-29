@@ -1,6 +1,6 @@
 {
   "name": "dlc-css-terminal",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A CSS terminal web component",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
