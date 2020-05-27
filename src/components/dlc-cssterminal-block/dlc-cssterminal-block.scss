@@ -76,11 +76,11 @@ $typewriter-animation-index: 1.5;
   &__content-command {
     display: inline-block;
     font-weight: lighter;
-    //border-right: .4rem solid $terminal-secondary-font-color;
     border-right: hem(.4) solid $terminal-secondary-font-color;
     white-space: nowrap;
     overflow: hidden;
     vertical-align: bottom;
+    color: $terminal-primary-font-color;
     
     /**
     * Creates several css classes in order to use for the typewriter animations
